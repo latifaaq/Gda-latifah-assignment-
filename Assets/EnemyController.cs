@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
-{
-    // Start is called before the first frame update
+{ 
+   private KillCounter m_killCounter;//A6&8
     void Start()
     {
-        
+        //m_killCounter = FindObjectOfType<KillCounter>();//A6
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)//Assignment5&6
     {
-    }
-    private void OnCollisionEnter(Collision collision)//Assignment5
-    {
-        if (collision.gameObject.tag == "PlayerBullet")//Assignment5
+        if (collision.gameObject.tag == "PlayerBullet")//Assignment5&6
         {
-            Destroy(gameObject);//Assignment5
+            KillCounter.Instance.IncreaseCounter();//A8, and 6 without Instance
+            Destroy(gameObject);//Assignment5,6&8
         }
     }
 }

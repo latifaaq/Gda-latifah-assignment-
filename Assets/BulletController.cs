@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [SerializeField] private float m_speed;//Assignment2&5
+    //[SerializeField] private float m_speed;//Assignment2&5
     [SerializeField] private float m_lifetime;//Assignment2&5
     [SerializeField] private string m_ignoredTag;//Assignment5
 
+    private float m_speed;
     private Rigidbody m_rigidbody;//Assignment5
 
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, m_lifetime);//Assignment2&5
         m_rigidbody = GetComponent<Rigidbody>();//Assignment5
     }
 
-    // Update is called once per frame
+    public void Init(float speed)
+    {
+        m_speed = speed;
+    }
     void FixedUpdate() //Assignment2&5 with Fixed Assignment3 without Fixed
     {
         m_rigidbody.velocity = Vector3.forward * m_speed;//Assignment5

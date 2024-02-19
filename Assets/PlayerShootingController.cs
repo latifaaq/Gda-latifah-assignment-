@@ -7,6 +7,8 @@ public class PlayerShootingController : MonoBehaviour
 {
     [SerializeField] private GameObject m_bullet;//Assignment2&3
     [SerializeField] private float m_shootingRate; //Assignment3
+    [SerializeField] private float m_bulletSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class PlayerShootingController : MonoBehaviour
     }
     private void Shoot() //Assignment3
     {
-        Instantiate(m_bullet, transform.position, Quaternion.identity); //Assignment3
+        GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity); //Assignment3
+        newBullet.GetComponent<BulletController>().Init(m_bulletSpeed);
     }
 }
