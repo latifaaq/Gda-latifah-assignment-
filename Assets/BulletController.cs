@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    //[SerializeField] private float m_speed;//Assignment2&5
+    [SerializeField] private float m_speed;//Assignment2&5
     [SerializeField] private float m_lifetime;//Assignment2&5
     [SerializeField] private string m_ignoredTag;//Assignment5
 
-    private float m_speed;
+    //private float m_speed;
     private Rigidbody m_rigidbody;//Assignment5
 
     void Start()
@@ -22,6 +22,7 @@ public class BulletController : MonoBehaviour
     {
         m_speed = speed;
     }
+
     void FixedUpdate() //Assignment2&5 with Fixed Assignment3 without Fixed
     {
         m_rigidbody.velocity = Vector3.forward * m_speed;//Assignment5

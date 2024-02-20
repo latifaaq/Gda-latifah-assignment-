@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))//Assignment2,3&5
         {
             //transform.position += -Vector3.forward * m_speed * Time.deltaTime; //Assignment2 without deltatime Assignment3 with deltatime
-            m_rigidbody.velocity = -Vector3.forward * m_speed;//Assignment5
+            m_rigidbody.velocity = Vector3.back * m_speed;//Assignment5
             moving = true;
 
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KillCounter : MonoBehaviour
 {
-    public static KillCounter Instance { get; private set; }
+   public static KillCounter Instance { get; private set; }
 
     [SerializeField] private TextMeshProUGUI m_text;
 
