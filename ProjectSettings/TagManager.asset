@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerBullet
+  - Player1
+  - PlayerBull
   - Enemy
   - EnemyBullet
   layers:
