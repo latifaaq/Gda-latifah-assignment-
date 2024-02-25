@@ -1748,6 +1748,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1108327917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108327909}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472f9e49e141f544ac3655a81d486da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2068445227013265144, guid: d5864a60a80f4644c80549e22330f46f, type: 3}
+  player: {fileID: 1871502712}
+  enemyType: 1
 --- !u!1001 &1261667129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4951,6 +4966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5623584664779536852, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6664054217948564828, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -4995,6 +5014,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8185489376265654693, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5002,6 +5025,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6664054217948564828, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1108327916}
+    - targetCorrespondingSourceObject: {fileID: 6664054217948564828, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108327917}
   m_SourcePrefab: {fileID: 100100000, guid: dbb28230a0fc2da4b9d163d758be8ada, type: 3}
 --- !u!1001 &7468731043066515344
 PrefabInstance:
