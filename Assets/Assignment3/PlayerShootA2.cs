@@ -18,7 +18,7 @@ public class PlayerShootA2 : MonoBehaviour
     void ShootBullet()
     {
         GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
-         newBullet.GetComponent<BulletControllerA5>().Init(m_bulletSpeed);
+         newBullet.GetComponent<BulletControllerA5>().Init(m_bulletSpeed, false, false);
         /*GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
         Rigidbody bulletRigidbody = newBullet.AddComponent<Rigidbody>(); // ????? Rigidbody ????? ???????
         bulletRigidbody.velocity = Vector3.forward * m_bulletSpeed; // ????? ???? ?????? ???????

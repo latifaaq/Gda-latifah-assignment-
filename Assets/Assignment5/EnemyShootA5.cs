@@ -28,6 +28,6 @@ public class EnemyShootA5 : MonoBehaviour
     private void Shoot()
     {
         GameObject newBullet = Instantiate(m_bullet, transform.position + Vector3.forward, Quaternion.identity);
-        newBullet.GetComponent<BulletControllerA5>().Init(m_data.BulletSpeed);
+        newBullet.GetComponent<BulletControllerA5>().Init(m_data.BulletSpeed, true, m_data.AutoAim);
     }
 }

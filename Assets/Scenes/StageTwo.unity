@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 47675134}
   - component: {fileID: 47675133}
   - component: {fileID: 47675132}
+  - component: {fileID: 47675136}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -472,6 +473,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &47675136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47675131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6486789f315e0164081f98ca77a9330e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &99135624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,9 +3662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472f9e49e141f544ac3655a81d486da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2068445227013265144, guid: d5864a60a80f4644c80549e22330f46f, type: 3}
-  player: {fileID: 0}
-  enemyType: 0
 --- !u!1001 &1753409335
 PrefabInstance:
   m_ObjectHideFlags: 0

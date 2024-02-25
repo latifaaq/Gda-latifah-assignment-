@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    /*public GameObject bulletPrefab;
     public Transform player;
     public int enemyType;
 
@@ -39,5 +39,5 @@ public class Enemy : MonoBehaviour
         {
             bulletScript.SetTarget(player);
         }
-    }
+    }*/
 }
