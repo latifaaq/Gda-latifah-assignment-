@@ -7,11 +7,15 @@ public class EnemyShootA5 : MonoBehaviour
     [SerializeField] private GameObject m_bullet;
     [SerializeField] private float m_shootingRate;
     [SerializeField] private EnemyData m_data;
+
+    [System.Obsolete]
     void Start()
     {
         //InvokeRepeating("Shoot", 0.0f, m_data.ShootingRate);
         StartCoroutine(ShootingCoroutine());
     }
+
+    [System.Obsolete]
     private IEnumerator ShootingCoroutine()
     {
         while (true)
@@ -25,6 +29,7 @@ public class EnemyShootA5 : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     private void Shoot()
     {
         GameObject newBullet = Instantiate(m_bullet, transform.position + Vector3.forward, Quaternion.identity);
