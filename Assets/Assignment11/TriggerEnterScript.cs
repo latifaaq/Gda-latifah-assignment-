@@ -36,7 +36,7 @@ public class TriggerEnterScript : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }*/
-    [SerializeField] private List<EnemyControllerA5> m_enemies;
+    /*[SerializeField] private List<EnemyControllerA5> m_enemies;
     private bool m_activated = false;
 
     private void Awake()
@@ -56,21 +56,54 @@ public class TriggerEnterScript : MonoBehaviour
             {
                 enemy.gameObject.SetActive(true);
 
-                var pos = enemy.transform.position;
+                var pos = enemy.transform.position;*/
 
-                /*RaycastHit info;
-                if(Physics.Raycast(pos, Vector3.down, out info))
-                {
-                    pos.y = info.point.y + 1;
-                }*/
-                pos.y = (float)0.3;
+    /*RaycastHit info;
+    if(Physics.Raycast(pos, Vector3.down, out info))
+    {
+        pos.y = info.point.y + 1;
+    }*/
+    /* pos.y = (float)0.3;
 
-                seq.Append(enemy.transform.DOMove(pos, 3)
-                    .OnComplete(() =>
-                    {
-                        enemy.GetComponent<EnemyShootA5>().StarShooting();
-                    }));
-            }
+     seq.Append(enemy.transform.DOMove(pos, 3)
+         .OnComplete(() =>
+         {
+             enemy.GetComponent<EnemyShootA5>().StarShooting();
+         }));
+ }
+}
+}*/
+    [SerializeField] private List<EnemyControllerA5> m_enemies;
+    private bool m_activated = false;
+
+    private void Awake()
+    {
+        foreach (EnemyControllerA5 enemy in m_enemies)
+        {
+            enemy.GetComponent<EnemyShootA5>().ShootOnStart = false; // Disable shooting on start
+            enemy.gameObject.SetActive(false); // Deactivate enemies initially
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!m_activated && other.CompareTag("Player1"))
+        {
+            m_activated = true;
+            SpawnEnemies();
+        }
+    }
+
+    private void SpawnEnemies()
+    {
+        Sequence sequence = DOTween.Sequence();
+        foreach (EnemyControllerA5 enemy in m_enemies)
+        {
+            sequence.AppendCallback(() => enemy.gameObject.SetActive(true)); // Activate enemy GameObject
+            sequence.AppendInterval(1f); // Delay before next enemy spawn
+
+            sequence.Append(enemy.transform.DOMoveY(0.3f, 3f).SetEase(Ease.InOutQuad) // Fall to ground over 3 seconds
+                .OnComplete(() => enemy.GetComponent<EnemyShootA5>().StarShooting())); // Start shooting when movement completes
         }
     }
 }
