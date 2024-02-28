@@ -19,7 +19,6 @@ public class BulletControllerA5 : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
     }
 
-    [System.Obsolete]
     public void Init(float speed, bool lookAtPlayer, bool followPlayer)
     {
         m_speed = speed; 

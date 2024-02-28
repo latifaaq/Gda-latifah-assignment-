@@ -6,13 +6,12 @@ public class EnemyControllerA5 : MonoBehaviour
 {
     private Counter m_counter;
 
-    [System.Obsolete]
     private void Start()
     {
         m_counter = FindObjectOfType<Counter>();
-        StartCoroutine(MovementCoroutine());
+        //StartCoroutine(MovementCoroutine());
     }
-    private IEnumerator MovementCoroutine()
+   /* private IEnumerator MovementCoroutine()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         while (true)
@@ -38,7 +37,7 @@ public class EnemyControllerA5 : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
         }
-    }
+    }*/
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "PlayerBull")
