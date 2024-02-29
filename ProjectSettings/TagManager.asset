@@ -8,6 +8,7 @@ TagManager:
   - PlayerBull
   - Enemy
   - EnemyBullet
+  - BananaMan
   layers:
   - Default
   - TransparentFX
