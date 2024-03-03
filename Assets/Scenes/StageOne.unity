@@ -3800,6 +3800,7 @@ GameObject:
   - component: {fileID: 1871502716}
   - component: {fileID: 1871502717}
   - component: {fileID: 1871502718}
+  - component: {fileID: 1871502719}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -3999,13 +4000,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871502707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b9e1cab71ff954ea12c94190cc4bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 10
   m_animator: {fileID: 391440722}
+--- !u!114 &1871502719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871502707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efa65b8d63a01f4481dda14b6e3ff49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1001 &1884665485
 PrefabInstance:
   m_ObjectHideFlags: 0
