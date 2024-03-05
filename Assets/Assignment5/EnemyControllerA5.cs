@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyControllerA5 : MonoBehaviour
 {
     private Counter m_counter;
+    [SerializeField] private AudioSource deathSound; // Reference to the AudioSource component for death sound
+    [SerializeField] private GameObject hitParticlePrefab; // Reference to the particle system prefab for when enemy is hit
 
     private void Start()
     {
@@ -43,7 +45,18 @@ public class EnemyControllerA5 : MonoBehaviour
         if(collision.gameObject.tag == "PlayerBull")
         {
             m_counter.IncreaseCounter();
+            // Instantiate hit particle system
+            Instantiate(hitParticlePrefab, transform.position, Quaternion.identity);
+            // Play death sound
+            PlayDeathSound();
             Destroy(gameObject);
+        }
+    }
+    void PlayDeathSound()
+    {
+        if (deathSound != null) // Check if the AudioSource component is assigned
+        {
+            deathSound.Play(); // Play the death sound
         }
     }
 }

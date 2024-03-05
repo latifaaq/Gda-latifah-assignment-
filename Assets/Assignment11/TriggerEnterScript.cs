@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TriggerEnterScript : MonoBehaviour
+/*public class TriggerEnterScript : MonoBehaviour
 {
 
     // This function is called when another Collider enters the trigger
@@ -73,7 +73,7 @@ public class TriggerEnterScript : MonoBehaviour
  }
 }
 }*/
-    [SerializeField] private List<EnemyControllerA5> m_enemies;
+    /*[SerializeField] private List<EnemyControllerA5> m_enemies;
     private bool m_activated = false;
 
     private void Awake()
@@ -106,4 +106,4 @@ public class TriggerEnterScript : MonoBehaviour
                 .OnComplete(() => enemy.GetComponent<EnemyShootA5>().StarShooting())); // Start shooting when movement completes
         }
     }
-}
+}*/

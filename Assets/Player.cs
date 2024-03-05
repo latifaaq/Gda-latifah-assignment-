@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     {
 
         movement = playerAction.Gameplay.Move.ReadValue<Vector2>();
-        rigidbody.velocity = new Vector3(movement.x, 0, movement.y) * speed;
+        rigidbody.velocity = new Vector3(movement.x, 0, movement.y) * speed; 
     }
     /*private void Zoom(float zoomInput)
     {

@@ -7,6 +7,8 @@ public class BulletControllerA5 : MonoBehaviour
     //[SerializeField] private float m_speed;
     [SerializeField] private float m_lifetime;
     [SerializeField] private string m_ignoredTag;
+    [SerializeField] private AudioSource collisionSound;
+
 
     private float m_speed;
     private Rigidbody m_rigidbody;
@@ -42,6 +44,14 @@ public class BulletControllerA5 : MonoBehaviour
         if (collision.gameObject.tag != m_ignoredTag)
         {
             Destroy(gameObject);
+            PlayCollisionSound();
+        }
+    }
+    void PlayCollisionSound()
+    {
+        if (collisionSound != null) // Check if the AudioSource component is assigned
+        {
+            collisionSound.Play(); // Play the collision sound
         }
     }
 }

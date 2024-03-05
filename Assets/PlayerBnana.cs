@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class PlayerBnana : MonoBehaviour
 {
@@ -42,5 +43,11 @@ public class PlayerBnana : MonoBehaviour
         m_animator.SetBool("Running", moving);
         transform.rotation = Quaternion.LookRotation(m_rigidbody.velocity);
     }
-
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Destroy(gameObject);
+        }
+    }*/
 }
