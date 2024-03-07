@@ -8,6 +8,8 @@ public class BulletControllerA5 : MonoBehaviour
     [SerializeField] private float m_lifetime;
     [SerializeField] private string m_ignoredTag;
     [SerializeField] private AudioSource collisionSound;
+    [SerializeField] private float m_explosionRadius = 20.0f;
+    [SerializeField] private float m_explosionForce = 1000.0f;
 
 
     private float m_speed;
@@ -15,15 +17,17 @@ public class BulletControllerA5 : MonoBehaviour
     private PlayerMoveA5 m_player;
     private Quaternion m_quat;
     private bool m_followPlayer;
+    private bool m_explosive;
     void Start()
     {
         Destroy(gameObject, m_lifetime);
         m_rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void Init(float speed, bool lookAtPlayer, bool followPlayer)
+    public void Init(float speed, bool lookAtPlayer, bool followPlayer, bool explosive)
     {
         m_speed = speed; 
+        m_explosive = explosive;
         if(lookAtPlayer)
         {
             m_player = FindObjectOfType<PlayerMoveA5>();
@@ -45,6 +49,18 @@ public class BulletControllerA5 : MonoBehaviour
         {
             Destroy(gameObject);
             PlayCollisionSound();
+            if(m_explosive)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius);
+                foreach(var collider in colliders)
+                {
+                    Rigidbody rb;
+                    if(collider.TryGetComponent<Rigidbody>(out rb))
+                    {
+                        rb.AddExplosionForce(m_explosionForce, transform.position, m_explosionRadius, 1.0f);
+                    }
+                }
+            }
         }
     }
     void PlayCollisionSound()
