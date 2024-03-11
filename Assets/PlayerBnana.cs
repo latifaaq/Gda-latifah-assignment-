@@ -3,51 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
-public class PlayerBnana : MonoBehaviour
+public class PlayerBanana : MonoBehaviour
 {
-    [SerializeField] private float m_speed;
-    [SerializeField] private Animator m_animator;
-    private Rigidbody m_rigidbody;
+    [SerializeField] private float speed;
+    [SerializeField] private Animator animator;
+
+    private Rigidbody rigidbody;
+
     private void Start()
     {
-        m_rigidbody = GetComponent<Rigidbody>();
+        InitializeComponents();
     }
+
     private void FixedUpdate()
     {
-        bool moving = false;
+        MovePlayer();
+    }
 
-        if(Input.GetKey(KeyCode.UpArrow))
+    private void InitializeComponents()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody == null)
         {
-            m_rigidbody.velocity = Vector3.forward * m_speed;
+            Debug.LogError("Rigidbody is NULL for player!");
+        }
+    }
+
+    private void MovePlayer()
+    {
+        bool moving = false;
+        Vector3 movementDirection = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            movementDirection = Vector3.forward;
             moving = true;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            m_rigidbody.velocity = Vector3.back * m_speed;
+            movementDirection = Vector3.back;
             moving = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            m_rigidbody.velocity = Vector3.right * m_speed;
+            movementDirection = Vector3.right;
             moving = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            m_rigidbody.velocity = Vector3.left * m_speed;
+            movementDirection = Vector3.left;
             moving = true;
         }
-        if (!moving)
+
+        rigidbody.velocity = movementDirection.normalized * speed;
+        animator.SetBool("Running", moving);
+        if (moving)
         {
-            m_rigidbody.velocity = Vector3.zero;
+            transform.rotation = Quaternion.LookRotation(movementDirection);
         }
-        m_animator.SetBool("Running", moving);
-        transform.rotation = Quaternion.LookRotation(m_rigidbody.velocity);
     }
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }

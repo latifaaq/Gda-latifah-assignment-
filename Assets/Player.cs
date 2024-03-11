@@ -7,38 +7,55 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float speed = 10f;
+
     private PlayerAction playerAction;
     private Rigidbody rigidbody;
     private Vector2 movement;
 
-
     private void Awake()
+    {
+        InitializeComponents();
+    }
+
+    private void OnEnable()
+    {
+        EnablePlayerInput();
+    }
+
+    private void OnDisable()
+    {
+        DisablePlayerInput();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void InitializeComponents()
     {
         playerAction = new PlayerAction();
         rigidbody = GetComponent<Rigidbody>();
 
-        if ( rigidbody == null )
+        if (rigidbody == null)
         {
-            Debug.LogError("RigidBody is NULL for player!");
+            Debug.LogError("Rigidbody is NULL for player!");
         }
-        //playerAction.Gameplay.Zoomcamera.perform += Context => Zoom(Context.ReadValue<float>());
     }
-    private void OnEnable()
+
+    private void EnablePlayerInput()
     {
-        playerAction.Gameplay.Enable(); 
+        playerAction.Gameplay.Enable();
     }
-    private void OnDisable()
+
+    private void DisablePlayerInput()
     {
         playerAction.Gameplay.Disable();
     }
-    private void FixedUpdate()
-    {
 
-        movement = playerAction.Gameplay.Move.ReadValue<Vector2>();
-        rigidbody.velocity = new Vector3(movement.x, 0, movement.y) * speed; 
-    }
-    /*private void Zoom(float zoomInput)
+    private void MovePlayer()
     {
-        Debug.Log(zoomInput);
-    }*/
+        movement = playerAction.Gameplay.Move.ReadValue<Vector2>();
+        rigidbody.velocity = new Vector3(movement.x, 0, movement.y) * speed;
+    }
 }
